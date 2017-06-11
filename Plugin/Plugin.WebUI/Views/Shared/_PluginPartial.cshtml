@@ -1,0 +1,12 @@
+﻿@using Plugin.Core
+@using Plugin.Helper
+
+@{
+    Creator creator = new WebMenuCreator();
+    PluginMenu menu = creator.Create();
+    
+    foreach (var item in ((WebMenu)menu).Plugins)
+    {
+        <li>@Html.ActionLink(item.MenuTitle, item.ActionName, item.ControllerName)</li>
+    }
+}
